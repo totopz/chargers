@@ -1,0 +1,17 @@
+<div class="nested-fields border rounded p-3 mb-3">
+  <div class="row g-3 align-items-end">
+    <div class="col-md-5">
+      <%= f.label :plug_type_id, "Plug Type", class: "form-label" %>
+      <%= f.collection_select :plug_type_id, @plug_types, :id, :name, prompt: "Select Plug Type", class: "form-select" %>
+    </div>
+
+    <div class="col-md-4">
+      <%= f.label :speed, "Power (kW)", class: "form-label" %>
+      <%= f.number_field :speed, class: "form-control", step: "1" %>
+    </div>
+
+    <div class="col-md-3 d-flex align-items-end">
+      <%= link_to_remove_association "Remove Plug", f, class: "btn btn-danger w-100" %>
+    </div>
+  </div>
+</div>

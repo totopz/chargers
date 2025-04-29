@@ -1,0 +1,32 @@
+<%= form_with(model: [:admin, location], class: "needs-validation") do |form| %>
+  <% if location.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(location.errors.count, "error") %> prohibited this location from being saved:</h4>
+      <ul class="mb-0">
+        <% location.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :latitude, class: "form-label" %>
+    <%= form.text_field :latitude, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :longitude, class: "form-label" %>
+    <%= form.text_field :longitude, class: "form-control" %>
+  </div>
+
+  <div class="d-flex gap-2">
+    <%= form.submit "Save", class: "btn btn-primary" %>
+    <%= link_to "Cancel", admin_locations_path, class: "btn btn-secondary" %>
+  </div>
+<% end %>

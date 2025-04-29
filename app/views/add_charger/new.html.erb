@@ -1,0 +1,68 @@
+<h1>Add New Charger</h1>
+
+<%= form_with(model: @charger, url: add_charger_index_path, method: :post) do |form| %>
+  <% if @charger.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@charger.errors.count, "error") %> prohibited this charger from being saved:</h2>
+
+      <ul>
+        <% @charger.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h2>Charger Information</h2>
+  <div>
+    <%= form.label :title, "Charger Title" %><br>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </div>
+
+  <h2>Location Information</h2>
+  <%= form.fields_for :location do |location_form| %>
+    <div>
+      <%= location_form.label :title, "Location Name" %><br>
+      <%= location_form.text_field :title %>
+    </div>
+
+    <div>
+      <%= location_form.label :latitude %><br>
+      <%= location_form.text_field :latitude %>
+    </div>
+
+    <div>
+      <%= location_form.label :longitude %><br>
+      <%= location_form.text_field :longitude %>
+    </div>
+  <% end %>
+
+  <h2>Plug Information</h2>
+  <div id="plugs">
+    <%= form.fields_for :plugs do |plug_form| %>
+      <div class="nested-fields">
+        <h3>Plug</h3>
+        <div>
+          <%= plug_form.label :plug_type_id, "Plug Type" %><br>
+          <%= plug_form.collection_select :plug_type_id, @plug_types, :id, :name, { prompt: "Select Plug Type" } %>
+        </div>
+
+        <div>
+          <%= plug_form.label :speed %><br>
+          <%= plug_form.number_field :speed %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit "Add Charger" %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', root_path %>

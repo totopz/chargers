@@ -1,0 +1,23 @@
+<div class="map-page">
+  <header>
+    <h1>Electric Car Chargers Map</h1>
+  </header>
+
+  <div id="map"></div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var map = L.map('map').setView([42.6977, 23.4219], 12); // Change to a default location
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    <% @chargers.each do |charger| %>
+      L.marker([<%= charger.location.latitude %>, <%= charger.location.longitude %>])
+        .addTo(map)
+        .bindPopup("<strong><%= j charger.title %> (<%= j charger.location.title %>)</strong><br><%= j charger.description %>");
+    <% end %>
+  });
+</script>

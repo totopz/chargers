@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  charger: one
+  plug_type: one
+  speed: 22
+
+two:
+  charger: two
+  plug_type: two
+  speed: 50

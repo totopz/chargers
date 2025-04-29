@@ -1,0 +1,16 @@
+<h1>Charger Details</h1>
+
+<p><strong>Title:</strong> <%= @charger.title %></p>
+<p><strong>Description:</strong> <%= @charger.description %></p>
+
+<h2>Location</h2>
+<p><strong>Name:</strong> <%= @charger.location.title %></p>
+<p><strong>Latitude:</strong> <%= @charger.location.latitude %></p>
+<p><strong>Longitude:</strong> <%= @charger.location.longitude %></p>
+
+<h2>Plug Details:</h2>
+<p><strong>Plug Type:</strong> <%= @charger.plugs.first.plug_type.name %></p>
+<p><strong>Is DC:</strong> <%= @charger.plugs.first.plug_type.is_dc %></p>
+<p><strong>Speed:</strong> <%= @charger.plugs.first.speed %></p>
+
+<%= link_to 'Back to Home', root_path %>
