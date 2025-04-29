@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  charger: one
+  plug_type: one
+  is_dc: false
+  speed: 1
+
+two:
+  charger: two
+  plug_type: two
+  is_dc: false
+  speed: 1

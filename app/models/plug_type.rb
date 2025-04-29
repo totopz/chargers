@@ -1,0 +1,2 @@
+class PlugType < ApplicationRecord
+end
